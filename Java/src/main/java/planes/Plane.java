@@ -1,41 +1,40 @@
-package Planes;
+package planes;
 
 import java.util.Objects;
 
-abstract public class Plane {
-    String model;
+public abstract class Plane {
+    private String modelOfPlane;
     private int maxSpeed;
     private int maxFlightDistance;
     private int maxLoadCapacity;
 
-    public Plane(String model, int maxSpeed, int maxFlightDistance, int maxLoadCapacity) {
-        this.model = model;
+    protected Plane(String model, int maxSpeed, int maxFlightDistance, int maxLoadCapacity) {
+        this.modelOfPlane = model;
         this.maxSpeed = maxSpeed;
         this.maxFlightDistance = maxFlightDistance;
         this.maxLoadCapacity = maxLoadCapacity;
     }
 
-    public String getModel() {
-        return model;
+    public String getModelOfPlane() {
+        return modelOfPlane;
     }
 
-    public int getMS() {
+    public int getMaxSpeed() {
         return maxSpeed;
     }
 
-    public int Get_Max_Flight_Distance() {
+    public int getMaxFlightDistance() {
         return maxFlightDistance;
     }
 
     public int getMinLoadCapacity() {
-        int result = this.maxLoadCapacity;
-        return result;
+        return this.maxLoadCapacity;
     }
 
     @Override
     public String toString() {
         return "Plane{" +
-                "model='" + model + '\'' +
+                "model='" + modelOfPlane + '\'' +
                 ", maxSpeed=" + maxSpeed +
                 ", maxFlightDistance=" + maxFlightDistance +
                 ", maxLoadCapacity=" + maxLoadCapacity +
@@ -50,11 +49,11 @@ abstract public class Plane {
         return maxSpeed == plane.maxSpeed &&
                 maxFlightDistance == plane.maxFlightDistance &&
                 maxLoadCapacity == plane.maxLoadCapacity &&
-                Objects.equals(model, plane.model);
+                Objects.equals(modelOfPlane, plane.modelOfPlane);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(model, maxSpeed, maxFlightDistance, maxLoadCapacity);
+        return Objects.hash(modelOfPlane, maxSpeed, maxFlightDistance, maxLoadCapacity);
     }
 }
